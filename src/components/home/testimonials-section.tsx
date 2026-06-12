@@ -1,26 +1,30 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import { useTranslations, useLocale } from "next-intl";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { SectionHeader } from "@/components/layout/section-header";
-import { testimonials } from "@/lib/data";
+import { testimonialConfigs } from "@/lib/data";
 
 export function TestimonialsSection() {
+  const t = useTranslations("testimonials");
+  const tCommon = useTranslations("common");
+  const locale = useLocale();
   const [index, setIndex] = useState(0);
-  const current = testimonials[index];
+  const current = testimonialConfigs[index];
 
-  const next = () => setIndex((i) => (i + 1) % testimonials.length);
-  const prev = () => setIndex((i) => (i - 1 + testimonials.length) % testimonials.length);
+  const next = () => setIndex((i) => (i + 1) % testimonialConfigs.length);
+  const prev = () => setIndex((i) => (i - 1 + testimonialConfigs.length) % testimonialConfigs.length);
+
+  const PrevIcon = locale === "ar" ? ChevronRight : ChevronLeft;
+  const NextIcon = locale === "ar" ? ChevronLeft : ChevronRight;
 
   return (
-    <section className="bg-section py-20 md:py-28">
+    <section className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="Testimonials"
-          title="What Our Clients Say"
-          description="Real feedback from homeowners, property managers, and business leaders."
-        />
+        <SectionHeader badge={t("badge")} title={t("title")} description={t("description")} />
         <div className="relative mx-auto max-w-3xl">
           <AnimatePresence mode="wait">
             <motion.div
@@ -29,24 +33,32 @@ export function TestimonialsSection() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.3 }}
-              className="rounded-2xl border border-slate-100 bg-white p-8 shadow-lg md:p-12"
+              className="rounded-2xl border border-accent bg-section/50 p-8 shadow-premium md:p-12"
             >
-              <Quote className="h-10 w-10 text-teal/30" />
+              <Quote className="h-10 w-10 text-secondary/40" />
               <p className="mt-6 text-lg leading-relaxed text-text md:text-xl">
-                &ldquo;{current.text}&rdquo;
+                &ldquo;{t(`items.${current.id}.text`)}&rdquo;
               </p>
               <div className="mt-6 flex gap-1">
                 {Array.from({ length: current.rating }).map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />
+                  <Star key={i} className="h-5 w-5 fill-secondary text-secondary" />
                 ))}
               </div>
               <div className="mt-6 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-teal font-heading font-semibold text-white">
-                  {current.avatar}
+                <div className="relative h-14 w-14 overflow-hidden rounded-full ring-2 ring-secondary/30">
+                  <Image
+                    src={current.photo}
+                    alt={t(`items.${current.id}.name`)}
+                    fill
+                    className="object-cover"
+                    sizes="56px"
+                  />
                 </div>
                 <div>
-                  <p className="font-heading font-semibold text-primary">{current.name}</p>
-                  <p className="text-sm text-text">{current.role}</p>
+                  <p className="font-heading font-semibold text-primary">
+                    {t(`items.${current.id}.name`)}
+                  </p>
+                  <p className="text-sm text-text-muted">{t(`items.${current.id}.role`)}</p>
                 </div>
               </div>
             </motion.div>
@@ -55,31 +67,31 @@ export function TestimonialsSection() {
             <button
               type="button"
               onClick={prev}
-              className="rounded-full border border-slate-200 p-2 text-primary transition-colors hover:bg-teal hover:text-white"
-              aria-label="Previous testimonial"
+              className="rounded-full border border-accent bg-white p-2.5 text-primary transition-all hover:bg-primary hover:text-white"
+              aria-label={tCommon("previous")}
             >
-              <ChevronLeft className="h-5 w-5" />
+              <PrevIcon className="h-5 w-5" />
             </button>
             <div className="flex gap-2">
-              {testimonials.map((_, i) => (
+              {testimonialConfigs.map((_, i) => (
                 <button
                   key={i}
                   type="button"
                   onClick={() => setIndex(i)}
                   className={`h-2 rounded-full transition-all ${
-                    i === index ? "w-8 bg-teal" : "w-2 bg-slate-300"
+                    i === index ? "w-8 bg-primary" : "w-2 bg-accent"
                   }`}
-                  aria-label={`Go to testimonial ${i + 1}`}
+                  aria-label={`${i + 1}`}
                 />
               ))}
             </div>
             <button
               type="button"
               onClick={next}
-              className="rounded-full border border-slate-200 p-2 text-primary transition-colors hover:bg-teal hover:text-white"
-              aria-label="Next testimonial"
+              className="rounded-full border border-accent bg-white p-2.5 text-primary transition-all hover:bg-primary hover:text-white"
+              aria-label={tCommon("next")}
             >
-              <ChevronRight className="h-5 w-5" />
+              <NextIcon className="h-5 w-5" />
             </button>
           </div>
         </div>

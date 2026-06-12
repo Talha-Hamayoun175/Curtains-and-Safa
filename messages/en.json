@@ -1,0 +1,464 @@
+{
+  "metadata": {
+    "home": {
+      "title": "Premium Curtain & Sofa Services Saudi Arabia",
+      "description": "Leading curtain cleaning, sofa cleaning, installation & upholstery services in Riyadh, Jeddah & across Saudi Arabia. Same-day service. Book online today.",
+      "keywords": "Curtain Cleaning Saudi Arabia, Sofa Cleaning Riyadh, Curtain Installation Services, Upholstery Cleaning Saudi Arabia"
+    },
+    "about": {
+      "title": "About Us",
+      "description": "Learn about Curtains & Sofa Services — Saudi Arabia's trusted specialists for premium curtain and upholstery care since 2012."
+    },
+    "services": {
+      "title": "Our Services",
+      "description": "Curtain cleaning, sofa cleaning, installation, repair, upholstery care & home deep cleaning across Saudi Arabia."
+    },
+    "pricing": {
+      "title": "Pricing",
+      "description": "Transparent SAR pricing for curtain and sofa services. Essential, Premium & Complete packages."
+    },
+    "booking": {
+      "title": "Book a Service",
+      "description": "Book curtain or sofa services online in Saudi Arabia. Fast scheduling with confirmation within 2 hours."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Contact Curtains & Sofa Services. Phone, WhatsApp, email & office in Riyadh, Saudi Arabia."
+    }
+  },
+  "brand": {
+    "name": "Curtains & Sofa",
+    "tagline": "Services",
+    "fullName": "Curtains & Sofa Services"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "pricing": "Pricing",
+    "booking": "Book Now",
+    "contact": "Contact",
+    "getQuote": "Get Quote"
+  },
+  "common": {
+    "bookNow": "Book Now",
+    "getQuote": "Get Free Quote",
+    "whatsapp": "WhatsApp",
+    "whatsappUs": "WhatsApp Us",
+    "callNow": "Call Now",
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "submit": "Submit",
+    "sending": "Sending...",
+    "submitting": "Submitting...",
+    "from": "From",
+    "perVisit": "per visit",
+    "perItem": "per item",
+    "perRoom": "per room",
+    "perHome": "per home",
+    "mostPopular": "Most Popular",
+    "getStarted": "Get Started",
+    "book": "Book",
+    "previous": "Previous",
+    "next": "Next",
+    "before": "Before",
+    "after": "After",
+    "close": "Close",
+    "subscribe": "Subscribe",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "allRightsReserved": "All rights reserved.",
+    "language": "Language",
+    "english": "English",
+    "arabic": "العربية"
+  },
+  "hero": {
+    "badge": "Trusted Since 2012 · 4.9★ Rating",
+    "title": "Premium Curtain &",
+    "titleHighlight": "Sofa",
+    "titleEnd": "Care in Saudi Arabia",
+    "description": "Expert cleaning, installation, and repair for curtains, sofas, and upholstery. Professional results that restore beauty to your Saudi home.",
+    "statRating": "4.9/5 Rating",
+    "statReviews": "850+ reviews",
+    "statInsured": "Fully Insured",
+    "statBonded": "Licensed teams",
+    "statExperience": "12+ Years",
+    "statExperienceSub": "In Saudi Arabia",
+    "happyCustomers": "8,500+",
+    "happyCustomersLabel": "Happy Customers",
+    "sameDay": "Same Day",
+    "sameDayLabel": "Service Available"
+  },
+  "trustBadges": {
+    "badge": "Why Saudi Families Trust Us",
+    "title": "Premium Service You Can Rely On",
+    "fastService": "Fast Service",
+    "fastServiceAr": "خدمة سريعة",
+    "qualityGuarantee": "Quality Guarantee",
+    "qualityGuaranteeAr": "ضمان الجودة",
+    "competitivePricing": "Competitive Pricing",
+    "competitivePricingAr": "أسعار تنافسية",
+    "professionalTeam": "Professional Team",
+    "professionalTeamAr": "فريق متخصص",
+    "sameDayService": "Same-Day Service",
+    "sameDayServiceAr": "خدمة في نفس اليوم",
+    "support247": "24/7 Customer Support",
+    "support247Ar": "دعم العملاء 24/7"
+  },
+  "stats": {
+    "customers": "Happy Customers",
+    "curtains": "Curtains Cleaned",
+    "sofas": "Sofas Restored",
+    "technicians": "Expert Technicians"
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Complete Curtain & Upholstery Solutions",
+    "description": "From curtain cleaning to sofa restoration — expert care for every fabric and furnishing in your Saudi home.",
+    "viewAll": "View All Services",
+    "pageTitle": "Professional Curtain & Sofa Care",
+    "pageDescription": "Detailed service packages with transparent SAR pricing. Book the right care for your curtains and furniture.",
+    "menuTitle": "Our Service Menu",
+    "menuDescription": "Each service includes professional equipment, trained technicians, and our satisfaction guarantee.",
+    "items": {
+      "curtain-cleaning": {
+        "title": "Curtain Cleaning",
+        "description": "Professional on-site and off-site curtain cleaning using fabric-safe methods that remove dust, stains, and allergens.",
+        "benefits": ["All fabric types", "Stain treatment", "Odor removal"]
+      },
+      "curtain-installation": {
+        "title": "Curtain Installation",
+        "description": "Expert curtain and drapery installation with precise measurements, quality hardware, and a flawless finish.",
+        "benefits": ["Free measurement", "Quality hardware", "Same-day install"]
+      },
+      "curtain-repair": {
+        "title": "Curtain Repair",
+        "description": "Restore damaged curtains — torn hems, broken tracks, faulty mechanisms, and worn linings brought back to life.",
+        "benefits": ["Track repair", "Hem restoration", "Mechanism fix"]
+      },
+      "sofa-cleaning": {
+        "title": "Sofa Cleaning",
+        "description": "Deep steam cleaning for all sofa fabrics — removes embedded dirt, pet hair, stains, and allergens.",
+        "benefits": ["Steam extraction", "Stain removal", "Fabric-safe"]
+      },
+      "sofa-shampooing": {
+        "title": "Sofa Shampooing",
+        "description": "Intensive shampoo treatment for heavily soiled upholstery — penetrates deep into fibers for a thorough clean.",
+        "benefits": ["Deep foam clean", "Deodorizing", "Quick dry"]
+      },
+      "sofa-repair": {
+        "title": "Sofa Repair",
+        "description": "Professional sofa repair — re-stuffing, spring replacement, frame repair, and cushion restoration.",
+        "benefits": ["Frame repair", "Cushion restore", "Spring replace"]
+      },
+      "upholstery-cleaning": {
+        "title": "Upholstery Cleaning",
+        "description": "Specialized cleaning for armchairs, dining chairs, ottomans, and all upholstered furniture.",
+        "benefits": ["All upholstery", "Color-safe", "Allergen free"]
+      },
+      "deep-cleaning": {
+        "title": "Home Deep Cleaning",
+        "description": "Comprehensive home deep cleaning covering every room — floors, surfaces, kitchens, and bathrooms.",
+        "benefits": ["Whole home", "Eco products", "Move-in ready"]
+      }
+    }
+  },
+  "whyChoose": {
+    "badge": "Why Choose Us",
+    "title": "The Saudi Premium Difference",
+    "description": "We combine trained specialists, professional equipment, and transparent SAR pricing to deliver results Saudi families trust.",
+    "items": {
+      "experienced": {
+        "title": "Experienced Team",
+        "description": "200+ trained specialists with 12+ years of combined expertise in curtain and upholstery care."
+      },
+      "affordable": {
+        "title": "Affordable Pricing",
+        "description": "Transparent quotes in Saudi Riyals with no hidden fees — premium quality within budget."
+      },
+      "sameDay": {
+        "title": "Same Day Service",
+        "description": "Urgent cleaning or repair? We offer same-day appointments across all Saudi cities."
+      },
+      "guarantee": {
+        "title": "100% Satisfaction Guarantee",
+        "description": "Not completely happy? We re-service for free within 48 hours — guaranteed."
+      },
+      "equipment": {
+        "title": "Professional Equipment",
+        "description": "Industrial-grade steam cleaners, extractors, and fabric-safe solutions for every job."
+      }
+    }
+  },
+  "gallery": {
+    "badge": "Our Work",
+    "title": "Before & After Gallery",
+    "description": "See the transformation — real results from our curtain and upholstery specialists in Saudi homes.",
+    "items": {
+      "1": { "title": "Luxury Living Room Curtains" },
+      "2": { "title": "Premium Sofa Restoration" },
+      "3": { "title": "Master Bedroom Drapes" },
+      "4": { "title": "Sectional Sofa Deep Clean" },
+      "5": { "title": "Villa Upholstery Care" }
+    }
+  },
+  "howItWorks": {
+    "badge": "Our Process",
+    "title": "Five Simple Steps to Renewed Furnishings",
+    "description": "Our streamlined process makes booking and enjoying professional curtain and sofa care effortless.",
+    "steps": {
+      "1": { "title": "Book Service", "description": "Choose your service and schedule online or via WhatsApp in minutes." },
+      "2": { "title": "Inspection", "description": "Our technician assesses fabric type, damage, and cleaning requirements." },
+      "3": { "title": "Cleaning / Repair", "description": "Expert treatment using professional equipment and fabric-safe products." },
+      "4": { "title": "Quality Check", "description": "Every item is inspected to ensure it meets our premium quality standards." },
+      "5": { "title": "Delivery", "description": "Curtains re-hung or furniture returned — your space transformed." }
+    }
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": "What Our Saudi Clients Say",
+    "description": "Real feedback from homeowners, designers, and property managers across the Kingdom.",
+    "items": {
+      "1": {
+        "name": "Sarah Al-Rashid",
+        "role": "Homeowner, Riyadh",
+        "text": "Our living room curtains looked brand new after their deep clean. The team was punctual, professional, and incredibly thorough. Highly recommend!"
+      },
+      "2": {
+        "name": "James Al-Harbi",
+        "role": "Interior Designer, Jeddah",
+        "text": "I recommend Curtains & Sofa Services to all my clients. Their upholstery cleaning is exceptional — they handle delicate fabrics with real expertise."
+      },
+      "3": {
+        "name": "Emily Al-Qahtani",
+        "role": "Property Manager, Dammam",
+        "text": "We use them for all our rental properties. Curtain installation and sofa cleaning are always flawless. Tenants love the results."
+      },
+      "4": {
+        "name": "David Al-Otaibi",
+        "role": "Hotel Manager, Khobar",
+        "text": "Their commercial curtain and upholstery program keeps our guest rooms spotless. Reliable, fast, and consistently excellent quality."
+      }
+    }
+  },
+  "serviceAreas": {
+    "badge": "Coverage",
+    "title": "Serving All Major Saudi Cities",
+    "description": "We proudly serve homes, villas, hotels, and businesses across the Kingdom of Saudi Arabia.",
+    "notListed": "Don't see your city?",
+    "contactUs": "Contact us",
+    "mayStillHelp": "— we may still be able to help.",
+    "cities": {
+      "riyadh": "Riyadh",
+      "jeddah": "Jeddah",
+      "dammam": "Dammam",
+      "khobar": "Khobar",
+      "makkah": "Makkah",
+      "madinah": "Madinah",
+      "taif": "Taif"
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently Asked Questions",
+    "description": "Everything you need to know before booking your first service in Saudi Arabia.",
+    "items": {
+      "1": {
+        "question": "How do I book a curtain or sofa service?",
+        "answer": "Use our online booking form, call us directly, or message us on WhatsApp. We confirm your appointment within 2 hours during business hours."
+      },
+      "2": {
+        "question": "Do you clean curtains on-site or take them away?",
+        "answer": "We offer both options. Light fabrics can often be cleaned on-site, while heavy drapes may be taken to our facility and returned within 48 hours."
+      },
+      "3": {
+        "question": "What types of sofa fabrics do you clean?",
+        "answer": "We clean all fabric types including leather, suede, velvet, linen, cotton, and synthetic blends. Our technicians assess each piece before treatment."
+      },
+      "4": {
+        "question": "How long does sofa cleaning take?",
+        "answer": "A standard 3-seater sofa takes 1–2 hours. Larger sectionals or heavily soiled furniture may require additional time. Drying typically takes 4–6 hours."
+      },
+      "5": {
+        "question": "Do you offer same-day service?",
+        "answer": "Yes — same-day appointments are available for most services across Riyadh, Jeddah, and Dammam, subject to technician availability."
+      },
+      "6": {
+        "question": "What is your satisfaction guarantee?",
+        "answer": "If you're not 100% satisfied with our work, contact us within 48 hours and we'll re-service the item at no additional charge."
+      }
+    }
+  },
+  "contact": {
+    "badge": "Contact",
+    "pageTitle": "We'd Love to Hear From You",
+    "pageDescription": "Questions, quotes, or custom plans — reach out anytime. We respond within 24 hours.",
+    "sectionBadge": "Get In Touch",
+    "sectionTitle": "Contact Us Today",
+    "sectionDescription": "Ready to transform your curtains and furniture? Reach out for a free quote.",
+    "sendMessage": "Send a Message",
+    "sendMessageDesc": "Fill out the form and our team will get back to you shortly.",
+    "speakWithTeam": "Speak With Our Team",
+    "speakWithTeamDesc": "Our specialists are available Sunday through Thursday and Saturday to answer questions and schedule your service.",
+    "callUs": "Call Us",
+    "email": "Email",
+    "office": "Office",
+    "hours": "Hours",
+    "hoursValue": "Sun–Thu & Sat: 8AM – 9PM · Fri: 2PM – 9PM",
+    "chatWhatsapp": "Chat on WhatsApp",
+    "findUs": "Find Us on the Map",
+    "infoTitle": "Contact Information"
+  },
+  "cta": {
+    "title": "Ready to Transform Your Saudi Home?",
+    "description": "Book your curtain or sofa service today and enjoy 10% off your first appointment. Limited slots available this week.",
+    "viewPricing": "View Pricing"
+  },
+  "footer": {
+    "newsletterTitle": "Stay Updated",
+    "newsletterDesc": "Get tips on curtain care and exclusive offers for Saudi homes.",
+    "emailPlaceholder": "Your email address",
+    "description": "Premium curtain and sofa services for Saudi homes, villas, and businesses. Trusted specialists since 2012.",
+    "quickLinks": "Quick Links",
+    "servicesTitle": "Services",
+    "contactTitle": "Contact",
+    "chatWhatsapp": "Chat on WhatsApp →"
+  },
+  "pricing": {
+    "badge": "Pricing",
+    "pageTitle": "Simple, Transparent Packages",
+    "pageDescription": "No hidden fees. All prices in Saudi Riyals (SAR). Choose the package that fits your needs.",
+    "chooseTitle": "Choose Your Package",
+    "chooseDescription": "All packages include professional equipment, trained technicians, and our satisfaction guarantee.",
+    "customQuote": "Need a custom quote for commercial or recurring service?",
+    "contactCustom": "Contact Us for Custom Pricing",
+    "plans": {
+      "essential": {
+        "name": "Essential",
+        "description": "Perfect for single curtain or sofa cleaning",
+        "features": ["1 curtain panel or 2-seater sofa", "Standard steam clean", "Stain spot treatment", "Fabric assessment", "2-hour service window"]
+      },
+      "premium": {
+        "name": "Premium",
+        "description": "Our most popular package",
+        "features": ["Full room curtains (up to 4 panels)", "Large sofa or sectional", "Deep shampoo treatment", "Odor neutralizing", "Priority scheduling", "48-hour satisfaction guarantee"]
+      },
+      "complete": {
+        "name": "Complete",
+        "description": "Whole-home curtain and upholstery care",
+        "features": ["All curtains in home", "Up to 3 sofas/chairs", "Upholstery deep clean", "Curtain track maintenance", "Same-day available", "Dedicated team lead", "Free re-service guarantee"]
+      }
+    }
+  },
+  "about": {
+    "badge": "About Us",
+    "pageTitle": "Curtain & Upholstery Excellence Since 2012",
+    "pageDescription": "We're on a mission to restore beauty to every curtain, sofa, and furnishing through professional, fabric-safe care across Saudi Arabia.",
+    "storyLabel": "Our Story",
+    "storyTitle": "From Specialists to Saudi Arabia's Trusted Brand",
+    "storyP1": "Curtains & Sofa Services began in 2012 with a simple belief: every Saudi home deserves beautifully maintained curtains and furniture. What started as a specialist curtain cleaning service in Riyadh has grown into a team of 45+ experts serving homes, villas, and businesses across the Kingdom.",
+    "storyP2": "Today we combine professional-grade equipment with fabric-safe techniques, transparent SAR pricing, and a 100% satisfaction guarantee that keeps Saudi families returning year after year.",
+    "mission": "Mission",
+    "missionText": "Deliver exceptional curtain and upholstery care that protects fabrics, saves time, and exceeds expectations — using professional techniques every step of the way.",
+    "vision": "Vision",
+    "visionText": "To be the most trusted curtain and sofa care brand in Saudi Arabia — setting the standard for craftsmanship, innovation, and customer satisfaction.",
+    "valuesBadge": "Core Values",
+    "valuesTitle": "What We Stand For",
+    "valuesDescription": "These principles guide every technician on every job across the Kingdom.",
+    "teamBadge": "Our Team",
+    "teamTitle": "Meet the Leadership",
+    "milestonesBadge": "Milestones",
+    "milestonesTitle": "Company Achievements",
+    "trustTitle": "Why Saudi Customers Trust Us",
+    "trustDescription": "Fully insured teams, fabric-certified technicians, professional equipment, and a 48-hour satisfaction guarantee on every service.",
+    "bookFirst": "Book Your First Service",
+    "values": {
+      "craftsmanship": { "title": "Craftsmanship", "description": "Every curtain and sofa treated with the care it deserves." },
+      "integrity": { "title": "Integrity", "description": "Honest pricing, transparent communication, no shortcuts." },
+      "excellence": { "title": "Excellence", "description": "We exceed expectations on every visit, every time." },
+      "trust": { "title": "Trust", "description": "Fully insured teams you can welcome into your Saudi home." }
+    },
+    "team": {
+      "1": { "name": "Michael Anderson", "role": "Founder & CEO", "bio": "18 years in textile and upholstery care across the Gulf region." },
+      "2": { "name": "Lisa Park", "role": "Operations Director", "bio": "Ensures every technician delivers consistent, five-star results nationwide." },
+      "3": { "name": "Robert Hayes", "role": "Technical Lead", "bio": "Develops our fabric care protocols and trains teams on the latest technologies." },
+      "4": { "name": "Amanda Foster", "role": "Customer Success Lead", "bio": "Your dedicated partner for quotes, scheduling, and satisfaction follow-ups." }
+    },
+    "achievements": {
+      "1": { "year": "2012", "title": "Company Founded", "description": "Started as a specialist curtain cleaning service in Riyadh." },
+      "2": { "year": "2016", "title": "5,000+ Clients", "description": "Expanded to full upholstery and sofa care across Saudi Arabia." },
+      "3": { "year": "2020", "title": "Commercial Division", "description": "Launched hotel and property management programs in the Kingdom." },
+      "4": { "year": "2024", "title": "Industry Recognition", "description": "Awarded Best Upholstery Service — Saudi Arabia." }
+    }
+  },
+  "booking": {
+    "badge": "Book Now",
+    "pageTitle": "Schedule Your Service",
+    "pageDescription": "Fill out the form below and we'll confirm your appointment within 2 business hours.",
+    "successTitle": "Booking Request Received!",
+    "successMessage": "Thank you! Our team will contact you within 2 hours to confirm your appointment.",
+    "bookAnother": "Book Another Service",
+    "submitButton": "Submit Booking Request",
+    "fields": {
+      "fullName": "Full Name",
+      "phone": "Phone Number",
+      "whatsapp": "WhatsApp Number",
+      "email": "Email",
+      "serviceType": "Service Type",
+      "propertyType": "Property Type",
+      "address": "Address",
+      "preferredDate": "Preferred Date",
+      "preferredTime": "Preferred Time",
+      "notes": "Additional Notes",
+      "optional": "Optional"
+    },
+    "placeholders": {
+      "fullName": "Ahmed Al-Rashid",
+      "phone": "+966 50 123 4567",
+      "email": "you@email.com",
+      "address": "District, City",
+      "notes": "Special instructions, access codes, pets, etc.",
+      "selectService": "Select service",
+      "selectProperty": "Select property",
+      "selectTime": "Select time"
+    },
+    "propertyTypes": ["Villa", "Apartment", "Palace", "Office", "Hotel", "Other"],
+    "times": ["8:00 AM", "10:00 AM", "12:00 PM", "2:00 PM", "4:00 PM", "6:00 PM", "8:00 PM"],
+    "errors": {
+      "fullName": "Name must be at least 2 characters",
+      "phone": "Please enter a valid Saudi phone number",
+      "email": "Please enter a valid email",
+      "serviceType": "Please select a service",
+      "propertyType": "Please select property type",
+      "address": "Please enter your address",
+      "preferredDate": "Please select a date",
+      "preferredTime": "Please select a time",
+      "submit": "Something went wrong. Please try again or contact us directly."
+    }
+  },
+  "contactForm": {
+    "successTitle": "Message Sent!",
+    "successMessage": "We'll get back to you within 24 hours.",
+    "sendAnother": "Send Another Message",
+    "sendButton": "Send Message",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message"
+    },
+    "placeholders": {
+      "name": "Your name",
+      "email": "you@email.com",
+      "phone": "+966 50 123 4567",
+      "message": "How can we help you?"
+    },
+    "errors": {
+      "name": "Name must be at least 2 characters",
+      "email": "Please enter a valid email",
+      "phone": "Please enter a valid phone number",
+      "message": "Message must be at least 10 characters",
+      "submit": "Failed to send message. Please try again."
+    }
+  }
+}

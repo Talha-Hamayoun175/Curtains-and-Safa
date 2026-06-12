@@ -1,28 +1,32 @@
+import { getTranslations } from "next-intl/server";
 import { SectionHeader } from "@/components/layout/section-header";
 import { FadeIn } from "@/components/motion/fade-in";
-import { howItWorks } from "@/lib/data";
+import { howItWorksSteps } from "@/lib/data";
 
-export function HowItWorksSection() {
+export async function HowItWorksSection() {
+  const t = await getTranslations("howItWorks");
+
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-section py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="How It Works"
-          title="Four Simple Steps to a Cleaner Space"
-          description="Our streamlined process makes booking and enjoying professional cleaning effortless."
-        />
-        <div className="relative grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div className="absolute top-16 hidden h-0.5 w-full bg-gradient-to-r from-teal/20 via-teal to-teal/20 lg:block" aria-hidden />
-          {howItWorks.map((step, i) => (
-            <FadeIn key={step.step} delay={i * 0.1}>
+        <SectionHeader badge={t("badge")} title={t("title")} description={t("description")} />
+        <div className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          <div
+            className="absolute top-16 hidden h-0.5 w-full bg-gradient-to-r from-primary/10 via-primary/40 to-primary/10 rtl:bg-gradient-to-l"
+            aria-hidden
+          />
+          {howItWorksSteps.map((step, i) => (
+            <FadeIn key={step} delay={i * 0.1}>
               <div className="relative text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-teal font-heading text-2xl font-bold text-white shadow-lg shadow-teal/30">
-                  {step.step}
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary font-heading text-2xl font-bold text-white shadow-premium">
+                  {step}
                 </div>
                 <h3 className="mt-6 font-heading text-lg font-semibold text-primary">
-                  {step.title}
+                  {t(`steps.${step}.title`)}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-text">{step.description}</p>
+                <p className="mt-2 text-sm leading-relaxed text-text-muted">
+                  {t(`steps.${step}.description`)}
+                </p>
               </div>
             </FadeIn>
           ))}

@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import { SectionHeader } from "@/components/layout/section-header";
 import {
   Accordion,
@@ -6,23 +7,21 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FadeIn } from "@/components/motion/fade-in";
-import { faqs } from "@/lib/data";
+import { faqKeys } from "@/lib/data";
 
-export function FaqSection() {
+export async function FaqSection() {
+  const t = await getTranslations("faq");
+
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-section py-20 md:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="FAQ"
-          title="Frequently Asked Questions"
-          description="Everything you need to know before booking your first clean."
-        />
+        <SectionHeader badge={t("badge")} title={t("title")} description={t("description")} />
         <FadeIn>
           <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, i) => (
-              <AccordionItem key={faq.question} value={`item-${i}`}>
-                <AccordionTrigger>{faq.question}</AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
+            {faqKeys.map((key, i) => (
+              <AccordionItem key={key} value={`item-${i}`}>
+                <AccordionTrigger>{t(`items.${key}.question`)}</AccordionTrigger>
+                <AccordionContent>{t(`items.${key}.answer`)}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

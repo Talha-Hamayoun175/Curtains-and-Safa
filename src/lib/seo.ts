@@ -1,35 +1,62 @@
 import type { Metadata } from "next";
-import { CONTACT, SITE_NAME, SITE_URL } from "./constants";
+import { CONTACT, SITE_NAME_AR, SITE_NAME_EN, SITE_URL } from "./constants";
+import type { Locale } from "@/i18n/routing";
 
 type PageSEO = {
   title: string;
   description: string;
+  keywords?: string;
   path?: string;
+  locale: Locale;
 };
+
+function getLocalizedPath(path: string, locale: Locale): string {
+  if (locale === "ar") {
+    return path === "/" || path === "" ? "/ar" : `/ar${path}`;
+  }
+  return path === "/" ? "" : path;
+}
 
 export function createMetadata({
   title,
   description,
-  path = "",
+  keywords,
+  path = "/",
+  locale,
 }: PageSEO): Metadata {
-  const url = `${SITE_URL}${path}`;
+  const normalizedPath = path === "/" ? "" : path;
+  const localizedPath = getLocalizedPath(normalizedPath, locale);
+  const url = `${SITE_URL}${localizedPath || "/"}`;
+  const siteName = locale === "ar" ? SITE_NAME_AR : SITE_NAME_EN;
   const fullTitle =
-    path === "" || path === "/"
-      ? `${SITE_NAME} | Premium House Cleaning Services`
-      : `${title} | ${SITE_NAME}`;
+    normalizedPath === ""
+      ? title
+      : `${title} | ${siteName}`;
+
+  const alternateEn = `${SITE_URL}${normalizedPath || "/"}`;
+  const alternateAr = `${SITE_URL}/ar${normalizedPath}`;
 
   return {
     title: fullTitle,
     description,
+    keywords: keywords?.split(",").map((k) => k.trim()),
     metadataBase: new URL(SITE_URL),
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: {
+        en: alternateEn,
+        ar: alternateAr,
+        "x-default": alternateEn,
+      },
+    },
     openGraph: {
       title: fullTitle,
       description,
       url,
-      siteName: SITE_NAME,
+      siteName,
       type: "website",
-      locale: "en_US",
+      locale: locale === "ar" ? "ar_SA" : "en_SA",
+      alternateLocale: locale === "ar" ? "en_SA" : "ar_SA",
     },
     twitter: {
       card: "summary_large_image",
@@ -43,37 +70,63 @@ export function createMetadata({
   };
 }
 
-export function localBusinessJsonLd() {
+export function localBusinessJsonLd(locale: Locale) {
+  const siteName = locale === "ar" ? SITE_NAME_AR : SITE_NAME_EN;
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: SITE_NAME,
+    name: siteName,
     description:
-      "Premium house cleaning, deep cleaning, office, hotel, and commercial cleaning services.",
+      locale === "ar"
+        ? "خدمات تنظيف الستائر والكنب وتركيبها وإصلاحها وتنظيف المفروشات في السعودية."
+        : "Premium curtain cleaning, installation, repair, sofa cleaning, shampooing, upholstery care, and home deep cleaning services in Saudi Arabia.",
     url: SITE_URL,
-    telephone: CONTACT.phone,
+    telephone: CONTACT.phoneTel,
     email: CONTACT.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "123 Clean Street, Suite 100",
-      addressLocality: "New York",
-      addressRegion: "NY",
-      postalCode: "10001",
-      addressCountry: "US",
+      streetAddress: "King Fahd Road, Al Olaya",
+      addressLocality: "Riyadh",
+      addressRegion: "Riyadh Province",
+      postalCode: "12211",
+      addressCountry: "SA",
     },
     priceRange: "$$",
+    currenciesAccepted: "SAR",
+    paymentAccepted: "Cash, Credit Card, Mada",
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
-      reviewCount: "1250",
+      reviewCount: "850",
     },
-    areaServed: "United States",
-    serviceType: [
-      "House Cleaning",
-      "Deep Cleaning",
-      "Office Cleaning",
-      "Hotel Cleaning",
-      "Commercial Cleaning",
+    areaServed: [
+      "Riyadh",
+      "Jeddah",
+      "Dammam",
+      "Khobar",
+      "Makkah",
+      "Madinah",
+      "Taif",
     ],
+    serviceType:
+      locale === "ar"
+        ? [
+            "تنظيف الستائر",
+            "تركيب الستائر",
+            "إصلاح الستائر",
+            "تنظيف الكنب",
+            "غسيل الكنب",
+            "تنظيف المفروشات",
+            "تنظيف المنازل",
+          ]
+        : [
+            "Curtain Cleaning",
+            "Curtain Installation",
+            "Curtain Repair",
+            "Sofa Cleaning",
+            "Sofa Shampooing",
+            "Upholstery Cleaning",
+            "Home Deep Cleaning",
+          ],
   };
 }

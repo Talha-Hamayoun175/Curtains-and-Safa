@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useTranslations } from "next-intl";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,26 +17,32 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { services } from "@/lib/data";
-
-const bookingSchema = z.object({
-  fullName: z.string().min(2, "Name must be at least 2 characters"),
-  phone: z.string().min(10, "Please enter a valid phone number"),
-  whatsapp: z.string().optional(),
-  email: z.string().email("Please enter a valid email"),
-  serviceType: z.string().min(1, "Please select a service"),
-  propertyType: z.string().min(1, "Please select property type"),
-  address: z.string().min(5, "Please enter your address"),
-  preferredDate: z.string().min(1, "Please select a date"),
-  preferredTime: z.string().min(1, "Please select a time"),
-  notes: z.string().optional(),
-});
-
-type BookingFormData = z.infer<typeof bookingSchema>;
-
+import { serviceConfigs } from "@/lib/data";
 export function BookingForm() {
+  const t = useTranslations("booking");
+  const tCommon = useTranslations("common");
+  const tServices = useTranslations("services.items");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const bookingSchema = useMemo(
+    () =>
+      z.object({
+        fullName: z.string().min(2, t("errors.fullName")),
+        phone: z.string().min(9, t("errors.phone")),
+        whatsapp: z.string().optional(),
+        email: z.string().email(t("errors.email")),
+        serviceType: z.string().min(1, t("errors.serviceType")),
+        propertyType: z.string().min(1, t("errors.propertyType")),
+        address: z.string().min(5, t("errors.address")),
+        preferredDate: z.string().min(1, t("errors.preferredDate")),
+        preferredTime: z.string().min(1, t("errors.preferredTime")),
+        notes: z.string().optional(),
+      }),
+    [t]
+  );
+
+  type BookingFormData = z.infer<typeof bookingSchema>;
 
   const {
     register,
@@ -52,6 +59,9 @@ export function BookingForm() {
   const propertyType = watch("propertyType");
   const preferredTime = watch("preferredTime");
 
+  const propertyTypes = t.raw("propertyTypes") as string[];
+  const times = t.raw("times") as string[];
+
   async function onSubmit(data: BookingFormData) {
     setError(null);
     try {
@@ -60,29 +70,27 @@ export function BookingForm() {
       setSubmitted(true);
       reset();
     } catch {
-      setError("Something went wrong. Please try again or contact us directly.");
+      setError(t("errors.submit"));
     }
   }
 
   if (submitted) {
     return (
       <div
-        className="rounded-2xl border border-teal/30 bg-teal/5 p-8 text-center"
+        className="rounded-2xl border border-primary/20 bg-accent p-8 text-center"
         role="status"
       >
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-teal text-white">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary text-white">
           <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
         <h3 className="mt-4 font-heading text-xl font-semibold text-primary">
-          Booking Request Received!
+          {t("successTitle")}
         </h3>
-        <p className="mt-2 text-text">
-          Thank you! Our team will contact you within 2 hours to confirm your appointment.
-        </p>
+        <p className="mt-2 text-text-muted">{t("successMessage")}</p>
         <Button className="mt-6" onClick={() => setSubmitted(false)}>
-          Book Another Service
+          {t("bookAnother")}
         </Button>
       </div>
     );
@@ -98,26 +106,47 @@ export function BookingForm() {
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="fullName">Full Name *</Label>
-          <Input id="fullName" {...register("fullName")} placeholder="John Smith" />
+          <Label htmlFor="fullName">{t("fields.fullName")} *</Label>
+          <Input id="fullName" {...register("fullName")} placeholder={t("placeholders.fullName")} />
           {errors.fullName && (
             <p className="text-sm text-red-600">{errors.fullName.message}</p>
           )}
         </div>
         <div className="space-y-2">
-          <Label htmlFor="phone">Phone Number *</Label>
-          <Input id="phone" type="tel" {...register("phone")} placeholder="+1 (555) 000-0000" />
+          <Label htmlFor="phone">{t("fields.phone")} *</Label>
+          <Input
+            id="phone"
+            type="tel"
+            dir="ltr"
+            className="text-start"
+            {...register("phone")}
+            placeholder={t("placeholders.phone")}
+          />
           {errors.phone && (
             <p className="text-sm text-red-600">{errors.phone.message}</p>
           )}
         </div>
         <div className="space-y-2">
-          <Label htmlFor="whatsapp">WhatsApp Number</Label>
-          <Input id="whatsapp" type="tel" {...register("whatsapp")} placeholder="Optional" />
+          <Label htmlFor="whatsapp">{t("fields.whatsapp")}</Label>
+          <Input
+            id="whatsapp"
+            type="tel"
+            dir="ltr"
+            className="text-start"
+            {...register("whatsapp")}
+            placeholder={t("fields.optional")}
+          />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email">Email *</Label>
-          <Input id="email" type="email" {...register("email")} placeholder="you@email.com" />
+          <Label htmlFor="email">{t("fields.email")} *</Label>
+          <Input
+            id="email"
+            type="email"
+            dir="ltr"
+            className="text-start"
+            {...register("email")}
+            placeholder={t("placeholders.email")}
+          />
           {errors.email && (
             <p className="text-sm text-red-600">{errors.email.message}</p>
           )}
@@ -126,15 +155,15 @@ export function BookingForm() {
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label>Service Type *</Label>
+          <Label>{t("fields.serviceType")} *</Label>
           <Select value={serviceType} onValueChange={(v) => setValue("serviceType", v)}>
             <SelectTrigger>
-              <SelectValue placeholder="Select service" />
+              <SelectValue placeholder={t("placeholders.selectService")} />
             </SelectTrigger>
             <SelectContent>
-              {services.map((s) => (
-                <SelectItem key={s.id} value={s.title}>
-                  {s.title}
+              {serviceConfigs.map((s) => (
+                <SelectItem key={s.id} value={tServices(`${s.id}.title`)}>
+                  {tServices(`${s.id}.title`)}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -144,15 +173,15 @@ export function BookingForm() {
           )}
         </div>
         <div className="space-y-2">
-          <Label>Property Type *</Label>
+          <Label>{t("fields.propertyType")} *</Label>
           <Select value={propertyType} onValueChange={(v) => setValue("propertyType", v)}>
             <SelectTrigger>
-              <SelectValue placeholder="Select property" />
+              <SelectValue placeholder={t("placeholders.selectProperty")} />
             </SelectTrigger>
             <SelectContent>
-              {["House", "Apartment", "Office", "Hotel", "Commercial", "Other"].map((t) => (
-                <SelectItem key={t} value={t}>
-                  {t}
+              {propertyTypes.map((type) => (
+                <SelectItem key={type} value={type}>
+                  {type}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -164,8 +193,8 @@ export function BookingForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="address">Address *</Label>
-        <Input id="address" {...register("address")} placeholder="Street, City, ZIP" />
+        <Label htmlFor="address">{t("fields.address")} *</Label>
+        <Input id="address" {...register("address")} placeholder={t("placeholders.address")} />
         {errors.address && (
           <p className="text-sm text-red-600">{errors.address.message}</p>
         )}
@@ -173,22 +202,22 @@ export function BookingForm() {
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="preferredDate">Preferred Date *</Label>
+          <Label htmlFor="preferredDate">{t("fields.preferredDate")} *</Label>
           <Input id="preferredDate" type="date" {...register("preferredDate")} />
           {errors.preferredDate && (
             <p className="text-sm text-red-600">{errors.preferredDate.message}</p>
           )}
         </div>
         <div className="space-y-2">
-          <Label>Preferred Time *</Label>
+          <Label>{t("fields.preferredTime")} *</Label>
           <Select value={preferredTime} onValueChange={(v) => setValue("preferredTime", v)}>
             <SelectTrigger>
-              <SelectValue placeholder="Select time" />
+              <SelectValue placeholder={t("placeholders.selectTime")} />
             </SelectTrigger>
             <SelectContent>
-              {["8:00 AM", "10:00 AM", "12:00 PM", "2:00 PM", "4:00 PM", "6:00 PM"].map((t) => (
-                <SelectItem key={t} value={t}>
-                  {t}
+              {times.map((time) => (
+                <SelectItem key={time} value={time}>
+                  {time}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -200,11 +229,11 @@ export function BookingForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="notes">Additional Notes</Label>
+        <Label htmlFor="notes">{t("fields.notes")}</Label>
         <Textarea
           id="notes"
           {...register("notes")}
-          placeholder="Special instructions, access codes, pets, etc."
+          placeholder={t("placeholders.notes")}
         />
       </div>
 
@@ -212,10 +241,10 @@ export function BookingForm() {
         {isSubmitting ? (
           <>
             <Loader2 className="h-4 w-4 animate-spin" />
-            Submitting...
+            {tCommon("submitting")}
           </>
         ) : (
-          "Submit Booking Request"
+          t("submitButton")
         )}
       </Button>
     </form>

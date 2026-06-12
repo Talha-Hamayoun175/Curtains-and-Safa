@@ -1,436 +1,279 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Bath,
-  Building2,
+  Blinds,
+  Droplets,
+  Headphones,
   Home,
-  Hotel,
-  Layers,
-  Leaf,
   Shield,
-  Sparkles,
   Sofa,
+  Sparkles,
+  SprayCan,
   Timer,
   Users,
   Wallet,
+  Wrench,
+  Zap,
 } from "lucide-react";
+import { SAUDI_CITIES } from "./constants";
 
 export type IconName =
-  | "home"
-  | "sparkles"
-  | "building"
-  | "hotel"
-  | "layers"
+  | "blinds"
+  | "wrench"
   | "sofa"
-  | "bath";
+  | "droplets"
+  | "sparkles"
+  | "spray"
+  | "home";
 
 export const serviceIcons: Record<IconName, LucideIcon> = {
-  home: Home,
-  sparkles: Sparkles,
-  building: Building2,
-  hotel: Hotel,
-  layers: Layers,
+  blinds: Blinds,
+  wrench: Wrench,
   sofa: Sofa,
-  bath: Bath,
+  droplets: Droplets,
+  sparkles: Sparkles,
+  spray: SprayCan,
+  home: Home,
 };
 
-export type Service = {
-  id: string;
-  title: string;
+export type ServiceId =
+  | "curtain-cleaning"
+  | "curtain-installation"
+  | "curtain-repair"
+  | "sofa-cleaning"
+  | "sofa-shampooing"
+  | "sofa-repair"
+  | "upholstery-cleaning"
+  | "deep-cleaning";
+
+export type ServiceConfig = {
+  id: ServiceId;
   slug: string;
-  description: string;
-  benefits: string[];
   priceFrom: number;
   image: string;
   icon: IconName;
 };
 
-export const services: Service[] = [
+export const serviceConfigs: ServiceConfig[] = [
   {
-    id: "house",
-    title: "House Cleaning",
-    slug: "house-cleaning",
-    description:
-      "Comprehensive home cleaning tailored to your schedule — dusting, vacuuming, mopping, and surface sanitization for every room.",
-    benefits: ["Flexible scheduling", "All rooms covered", "Eco-friendly products"],
-    priceFrom: 89,
-    image:
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
-    icon: "home",
+    id: "curtain-cleaning",
+    slug: "curtain-cleaning",
+    priceFrom: 189,
+    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80",
+    icon: "blinds",
   },
   {
-    id: "deep",
-    title: "Deep Cleaning",
-    slug: "deep-cleaning",
-    description:
-      "Intensive top-to-bottom cleaning for neglected areas, baseboards, appliances, and hard-to-reach spots.",
-    benefits: ["Move-in ready", "Appliance detail", "Grime removal"],
-    priceFrom: 149,
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-    icon: "sparkles",
-  },
-  {
-    id: "apartment",
-    title: "Apartment Cleaning",
-    slug: "apartment-cleaning",
-    description:
-      "Efficient cleaning for studios and multi-bedroom apartments with compact-team expertise.",
-    benefits: ["Quick turnaround", "Space-efficient", "Affordable rates"],
-    priceFrom: 79,
-    image:
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
-    icon: "building",
-  },
-  {
-    id: "office",
-    title: "Office Cleaning",
-    slug: "office-cleaning",
-    description:
-      "Professional workplace cleaning — desks, meeting rooms, restrooms, and common areas after hours.",
-    benefits: ["After-hours service", "Discreet teams", "Commercial grade"],
-    priceFrom: 199,
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-    icon: "building",
-  },
-  {
-    id: "hotel",
-    title: "Hotel Cleaning",
-    slug: "hotel-cleaning",
-    description:
-      "Hospitality-grade room turnover, lobby maintenance, and linen coordination for hotels and B&Bs.",
-    benefits: ["Fast turnovers", "Guest-ready standards", "Volume pricing"],
+    id: "curtain-installation",
+    slug: "curtain-installation",
     priceFrom: 299,
-    image:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
-    icon: "hotel",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    icon: "wrench",
   },
   {
-    id: "move",
-    title: "Move-In / Move-Out",
-    slug: "move-in-move-out",
-    description:
-      "Empty-property cleaning for landlords and tenants — cabinets, closets, and full sanitization.",
-    benefits: ["Deposit protection", "Inspection ready", "Same-day available"],
-    priceFrom: 179,
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-    icon: "home",
+    id: "curtain-repair",
+    slug: "curtain-repair",
+    priceFrom: 149,
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    icon: "wrench",
   },
   {
-    id: "sofa",
-    title: "Sofa Cleaning",
+    id: "sofa-cleaning",
     slug: "sofa-cleaning",
-    description:
-      "Steam and fabric-safe treatment for upholstery, removing stains, odors, and allergens.",
-    benefits: ["Stain treatment", "Odor neutralizing", "Fabric-safe"],
-    priceFrom: 59,
-    image:
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    priceFrom: 249,
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
     icon: "sofa",
   },
   {
-    id: "carpet",
-    title: "Carpet Cleaning",
-    slug: "carpet-cleaning",
-    description:
-      "Deep extraction and steam cleaning for carpets and rugs — restores color and freshness.",
-    benefits: ["Deep extraction", "Allergen reduction", "Quick dry"],
-    priceFrom: 69,
-    image:
-      "https://plus.unsplash.com/premium_photo-1677362887432-2c95e4437496?q=80",
-    icon: "layers",
+    id: "sofa-shampooing",
+    slug: "sofa-shampooing",
+    priceFrom: 299,
+    image: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800&q=80",
+    icon: "droplets",
   },
   {
-    id: "kitchen",
-    title: "Kitchen Cleaning",
-    slug: "kitchen-cleaning",
-    description:
-      "Degreasing countertops, appliances, backsplashes, and cabinets for a spotless cooking space.",
-    benefits: ["Grease removal", "Appliance shine", "Food-safe products"],
-    priceFrom: 99,
-    image:
-      "https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80",
+    id: "sofa-repair",
+    slug: "sofa-repair",
+    priceFrom: 199,
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80",
+    icon: "wrench",
+  },
+  {
+    id: "upholstery-cleaning",
+    slug: "upholstery-cleaning",
+    priceFrom: 219,
+    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80",
     icon: "sparkles",
   },
   {
-    id: "bathroom",
-    title: "Bathroom Sanitization",
-    slug: "bathroom-cleaning",
-    description:
-      "Hospital-grade sanitization of tiles, fixtures, showers, and grout with mold prevention.",
-    benefits: ["Grout treatment", "Mold prevention", "Disinfection"],
-    priceFrom: 79,
-    image:
-      "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80",
-    icon: "bath",
-  },
-  {
-    id: "commercial",
-    title: "Commercial Cleaning",
-    slug: "commercial-cleaning",
-    description:
-      "Scalable cleaning programs for retail, warehouses, and multi-location businesses.",
-    benefits: ["Custom contracts", "Dedicated managers", "24/7 support"],
-    priceFrom: 399,
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
-    icon: "building",
+    id: "deep-cleaning",
+    slug: "home-deep-cleaning",
+    priceFrom: 599,
+    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+    icon: "home",
   },
 ];
 
-export type WhyChooseIconName = "users" | "wallet" | "leaf" | "sparkles" | "shield" | "timer";
+export type WhyChooseKey =
+  | "experienced"
+  | "affordable"
+  | "sameDay"
+  | "guarantee"
+  | "equipment";
 
-export const whyChooseIcons: Record<WhyChooseIconName, LucideIcon> = {
-  users: Users,
-  wallet: Wallet,
-  leaf: Leaf,
-  sparkles: Sparkles,
-  shield: Shield,
-  timer: Timer,
+export const whyChooseKeys: WhyChooseKey[] = [
+  "experienced",
+  "affordable",
+  "sameDay",
+  "guarantee",
+  "equipment",
+];
+
+export const whyChooseIcons: Record<WhyChooseKey, LucideIcon> = {
+  experienced: Users,
+  affordable: Wallet,
+  sameDay: Timer,
+  guarantee: Shield,
+  equipment: SprayCan,
 };
 
-export const whyChooseUs: {
-  title: string;
-  description: string;
-  icon: WhyChooseIconName;
-}[] = [
-  {
-    title: "Experienced Team",
-    description: "500+ trained professionals with 10+ years combined expertise.",
-    icon: "users",
-  },
-  {
-    title: "Affordable Pricing",
-    description: "Transparent quotes with no hidden fees — quality within budget.",
-    icon: "wallet",
-  },
-  {
-    title: "Eco-Friendly Products",
-    description: "Non-toxic, biodegradable cleaners safe for kids and pets.",
-    icon: "leaf",
-  },
-  {
-    title: "Satisfaction Guarantee",
-    description: "Not happy? We re-clean for free within 48 hours.",
-    icon: "sparkles",
-  },
-  {
-    title: "Insured Professionals",
-    description: "Fully bonded and insured teams for your peace of mind.",
-    icon: "shield",
-  },
-  {
-    title: "Fast Booking",
-    description: "Book online in under 2 minutes — same-day slots available.",
-    icon: "timer",
-  },
+export type TrustBadgeKey =
+  | "fastService"
+  | "qualityGuarantee"
+  | "competitivePricing"
+  | "professionalTeam"
+  | "sameDayService"
+  | "support247";
+
+export const trustBadgeKeys: TrustBadgeKey[] = [
+  "fastService",
+  "qualityGuarantee",
+  "competitivePricing",
+  "professionalTeam",
+  "sameDayService",
+  "support247",
 ];
 
-export const howItWorks = [
-  {
-    step: 1,
-    title: "Book Service",
-    description: "Choose your service and fill out our quick booking form.",
-  },
-  {
-    step: 2,
-    title: "Schedule Visit",
-    description: "We confirm your preferred date and assign a dedicated team.",
-  },
-  {
-    step: 3,
-    title: "Cleaning Process",
-    description: "Our pros arrive on time with equipment and eco-friendly supplies.",
-  },
-  {
-    step: 4,
-    title: "Enjoy Clean Space",
-    description: "Relax in your spotless home or office — satisfaction guaranteed.",
-  },
-];
+export const trustBadgeIcons: Record<TrustBadgeKey, LucideIcon> = {
+  fastService: Zap,
+  qualityGuarantee: Shield,
+  competitivePricing: Wallet,
+  professionalTeam: Users,
+  sameDayService: Timer,
+  support247: Headphones,
+};
 
-export const stats = [
-  { label: "Happy Customers", value: 12500, suffix: "+" },
-  { label: "Houses Cleaned", value: 8400, suffix: "+" },
-  { label: "Hotels Served", value: 320, suffix: "+" },
-  { label: "Team Members", value: 85, suffix: "+" },
-];
+export const howItWorksSteps = [1, 2, 3, 4, 5] as const;
 
-export const testimonials = [
+export const statsConfig = [
+  { key: "customers", value: 8500, suffix: "+" },
+  { key: "curtains", value: 15000, suffix: "+" },
+  { key: "sofas", value: 6200, suffix: "+" },
+  { key: "technicians", value: 45, suffix: "+" },
+] as const;
+
+export const testimonialConfigs = [
   {
-    name: "Sarah Mitchell",
-    role: "Homeowner",
+    id: "1",
     rating: 5,
-    text: "SparkleClean transformed our home before the holidays. Every corner sparkled — highly recommend their deep cleaning package!",
-    avatar: "SM",
+    photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80",
   },
   {
-    name: "James Chen",
-    role: "Office Manager",
+    id: "2",
     rating: 5,
-    text: "We've used them for our 12,000 sq ft office for two years. Reliable, professional, and always on schedule.",
-    avatar: "JC",
+    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
   },
   {
-    name: "Emily Rodriguez",
-    role: "Property Manager",
+    id: "3",
     rating: 5,
-    text: "Move-out cleans are flawless. Tenants get deposits back and units turn over faster. Best partner we've had.",
-    avatar: "ER",
+    photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
   },
   {
-    name: "David Thompson",
-    role: "Hotel Director",
+    id: "4",
     rating: 5,
-    text: "Their hotel team understands hospitality standards. Guest satisfaction scores improved within the first month.",
-    avatar: "DT",
+    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
   },
-];
+] as const;
 
-export const faqs = [
+export const galleryConfigs = [
   {
-    question: "How do I book a cleaning service?",
-    answer:
-      "Use our online booking form or contact us via phone, email, or WhatsApp. We'll confirm your appointment within 2 hours during business hours.",
+    id: "1",
+    before: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80",
+    after: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80",
   },
   {
-    question: "Do I need to be home during the cleaning?",
-    answer:
-      "No — many clients provide access instructions. We're fully insured, and all team members pass background checks.",
+    id: "2",
+    before: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    after: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
   },
   {
-    question: "What cleaning products do you use?",
-    answer:
-      "We use EPA-approved, eco-friendly products. Premium packages include hypoallergenic options upon request.",
+    id: "3",
+    before: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800&q=80",
+    after: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
   },
   {
-    question: "How long does a typical house cleaning take?",
-    answer:
-      "A standard 2–3 bedroom home takes 2–4 hours. Deep cleaning and larger properties may require additional time.",
+    id: "4",
+    before: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80",
+    after: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80",
   },
   {
-    question: "What is your cancellation policy?",
-    answer:
-      "Cancel or reschedule free of charge up to 24 hours before your appointment. Late cancellations may incur a fee.",
+    id: "5",
+    before: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    after: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
   },
-  {
-    question: "Do you offer recurring cleaning plans?",
-    answer:
-      "Yes — weekly, bi-weekly, and monthly plans with discounted rates. Contact us for a custom quote.",
-  },
-];
+] as const;
 
-export const pricingPlans = [
-  {
-    name: "Basic",
-    price: 89,
-    period: "per visit",
-    description: "Perfect for regular maintenance",
-    features: [
-      "Up to 2 bedrooms",
-      "Kitchen & bathroom clean",
-      "Dusting & vacuuming",
-      "Eco-friendly products",
-      "2-hour service",
-    ],
-    highlighted: false,
-  },
-  {
-    name: "Standard",
-    price: 149,
-    period: "per visit",
-    description: "Our most popular package",
-    features: [
-      "Up to 4 bedrooms",
-      "Deep kitchen & bathrooms",
-      "Inside appliances",
-      "Baseboards & windowsills",
-      "4-hour service",
-      "Priority scheduling",
-    ],
-    highlighted: true,
-  },
-  {
-    name: "Premium",
-    price: 249,
-    period: "per visit",
-    description: "Ultimate deep clean experience",
-    features: [
-      "Whole home deep clean",
-      "Carpet & upholstery spot treatment",
-      "Inside cabinets & closets",
-      "Oven & refrigerator detail",
-      "6-hour service",
-      "Dedicated team lead",
-      "48-hour satisfaction guarantee",
-    ],
-    highlighted: false,
-  },
-];
+export const faqKeys = ["1", "2", "3", "4", "5", "6"] as const;
 
-export const team = [
-  {
-    name: "Michael Anderson",
-    role: "Founder & CEO",
-    bio: "15 years in facility management, passionate about elevating cleaning standards.",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
-  },
-  {
-    name: "Lisa Park",
-    role: "Operations Director",
-    bio: "Ensures every team delivers consistent, five-star results nationwide.",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
-  },
-  {
-    name: "Robert Hayes",
-    role: "Training Manager",
-    bio: "Develops our certification program for eco-friendly, hospital-grade techniques.",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
-  },
-  {
-    name: "Amanda Foster",
-    role: "Customer Success Lead",
-    bio: "Your dedicated partner for quotes, scheduling, and satisfaction follow-ups.",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
-  },
-];
+export const pricingPlanKeys = ["essential", "premium", "complete"] as const;
 
-export const coreValues = [
-  {
-    title: "Excellence",
-    description: "We exceed expectations on every visit, every time.",
-  },
-  {
-    title: "Integrity",
-    description: "Honest pricing, transparent communication, no shortcuts.",
-  },
-  {
-    title: "Sustainability",
-    description: "Green products and responsible waste practices.",
-  },
-  {
-    title: "Respect",
-    description: "We treat your space like our own — with care and discretion.",
-  },
-];
+export const pricingPlanConfig = {
+  essential: { price: 189, highlighted: false, periodKey: "perItem" as const },
+  premium: { price: 449, highlighted: true, periodKey: "perRoom" as const },
+  complete: { price: 899, highlighted: false, periodKey: "perHome" as const },
+};
 
-export const achievements = [
-  { year: "2014", title: "Company Founded", description: "Started with 3 cleaners and a vision." },
-  { year: "2017", title: "1,000+ Clients", description: "Expanded to commercial and hotel sectors." },
-  { year: "2020", title: "Eco Certification", description: "Green Seal certified cleaning program." },
-  { year: "2024", title: "Industry Award", description: "Best Regional Cleaning Service — Northeast." },
-];
+export const teamConfigs = [
+  {
+    id: "1",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
+  },
+  {
+    id: "2",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
+  },
+  {
+    id: "3",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+  },
+  {
+    id: "4",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+  },
+] as const;
 
-export const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/booking", label: "Book Now" },
-  { href: "/contact", label: "Contact" },
-];
+export const coreValueKeys = ["craftsmanship", "integrity", "excellence", "trust"] as const;
+
+export const achievementKeys = ["1", "2", "3", "4"] as const;
+
+export const navLinkHrefs = [
+  { href: "/", key: "home" },
+  { href: "/about", key: "about" },
+  { href: "/services", key: "services" },
+  { href: "/pricing", key: "pricing" },
+  { href: "/booking", key: "booking" },
+  { href: "/contact", key: "contact" },
+] as const;
+
+export const serviceAreaKeys = SAUDI_CITIES;
+
+export const heroImages = {
+  background: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80",
+  featured: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80",
+};
+
+export const pageHeroImages = {
+  about: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80",
+  services: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&q=80",
+  pricing: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1920&q=80",
+  booking: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1920&q=80",
+  contact: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80",
+};

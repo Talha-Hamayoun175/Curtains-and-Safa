@@ -19,7 +19,7 @@ export function SectionHeader({
   return (
     <FadeIn className={cn(centered && "text-center", "mb-12 md:mb-16", className)}>
       {badge && (
-        <span className="mb-4 inline-block rounded-full bg-teal/10 px-4 py-1.5 text-sm font-medium text-teal">
+        <span className="mb-4 inline-block rounded-full bg-secondary/15 px-4 py-1.5 text-sm font-medium text-secondary">
           {badge}
         </span>
       )}
@@ -27,7 +27,7 @@ export function SectionHeader({
         {title}
       </h2>
       {description && (
-        <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-text">
+        <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-text-muted">
           {description}
         </p>
       )}

@@ -1,17 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { useInView, motion } from "framer-motion";
-import { SectionHeader } from "@/components/layout/section-header";
-import { stats } from "@/lib/data";
+import { Blinds, Sofa, Star, Users } from "lucide-react";
+import { statsConfig } from "@/lib/data";
 
-function AnimatedCounter({
-  value,
-  suffix,
-}: {
-  value: number;
-  suffix: string;
-}) {
+const statIcons = [Users, Blinds, Sofa, Star];
+
+function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [count, setCount] = useState(0);
@@ -35,7 +32,7 @@ function AnimatedCounter({
   }, [isInView, value]);
 
   return (
-    <span ref={ref} className="font-heading text-4xl font-bold text-white md:text-5xl">
+    <span ref={ref} className="font-heading text-3xl font-bold text-primary md:text-4xl">
       {count.toLocaleString()}
       {suffix}
     </span>
@@ -43,29 +40,33 @@ function AnimatedCounter({
 }
 
 export function StatsSection() {
+  const t = useTranslations("stats");
+
   return (
-    <section className="bg-primary py-20 md:py-28">
+    <section className="border-y border-accent bg-accent/30 py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="By The Numbers"
-          title="Trusted Across Homes & Businesses"
-          description="Our track record speaks for itself — join thousands of satisfied clients."
-          className="[&_h2]:text-white [&_p]:text-slate-300 [&_span]:bg-teal/20"
-        />
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="rounded-2xl border border-slate-700/50 bg-slate-800/30 p-8 text-center"
-            >
-              <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-              <p className="mt-2 text-sm font-medium text-slate-300">{stat.label}</p>
-            </motion.div>
-          ))}
+          {statsConfig.map((stat, i) => {
+            const Icon = statIcons[i] ?? Star;
+            return (
+              <motion.div
+                key={stat.key}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="flex items-center gap-4 rounded-2xl bg-white p-6 shadow-premium"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                  <Icon className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                  <p className="text-sm font-medium text-text-muted">{t(stat.key)}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
