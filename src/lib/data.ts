@@ -193,31 +193,33 @@ export const testimonialConfigs = [
   },
 ] as const;
 
+const galleryImageBase = "/before-after";
+
 export const galleryConfigs = [
   {
     id: "1",
-    before: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=80",
-    after: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80",
+    before: `${galleryImageBase}/1.jpg`,
+    after: `${galleryImageBase}/2.jpg`,
   },
   {
     id: "2",
-    before: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
-    after: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
+    before: `${galleryImageBase}/3.jpg`,
+    after: `${galleryImageBase}/4.jpg`,
   },
   {
     id: "3",
-    before: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800&q=80",
-    after: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    before: `${galleryImageBase}/5.jpg`,
+    after: `${galleryImageBase}/6.jpg`,
   },
   {
     id: "4",
-    before: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80",
-    after: "https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80",
+    before: `${galleryImageBase}/7.jpg`,
+    after: `${galleryImageBase}/8.jpg`,
   },
   {
     id: "5",
-    before: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-    after: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+    before: `${galleryImageBase}/9.jpg`,
+    after: `${galleryImageBase}/10.jpg`,
   },
 ] as const;
 
