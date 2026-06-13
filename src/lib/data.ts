@@ -43,7 +43,7 @@ export type ServiceId =
   | "sofa-shampooing"
   | "sofa-repair"
   | "upholstery-cleaning"
-  | "deep-cleaning";
+  | "majlis-seating";
 
 export type ServiceConfig = {
   id: ServiceId;
@@ -104,11 +104,11 @@ export const serviceConfigs: ServiceConfig[] = [
     icon: "sparkles",
   },
   {
-    id: "deep-cleaning",
-    slug: "home-deep-cleaning",
-    priceFrom: 599,
-    image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
-    icon: "home",
+    id: "majlis-seating",
+    slug: "arabic-majlis-sofa-seating",
+    priceFrom: 349,
+    image: "/majlis-seating.png",
+    icon: "sofa",
   },
 ];
 

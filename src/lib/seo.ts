@@ -78,8 +78,8 @@ export function localBusinessJsonLd(locale: Locale) {
     name: siteName,
     description:
       locale === "ar"
-        ? "خدمات تنظيف الستائر والكنب وتركيبها وإصلاحها وتنظيف المفروشات في السعودية."
-        : "Premium curtain cleaning, installation, repair, sofa cleaning, shampooing, upholstery care, and home deep cleaning services in Saudi Arabia.",
+        ? "خدمات تنظيف الستائر والكنب وتركيبها وإصلاحها وتنظيف المفروشات وجلسات المجلس العربي في السعودية."
+        : "Premium curtain cleaning, installation, repair, sofa cleaning, shampooing, upholstery care, and Arabic majlis sofa seating services in Saudi Arabia.",
     url: SITE_URL,
     telephone: CONTACT.phoneTel,
     email: CONTACT.email,
@@ -117,7 +117,7 @@ export function localBusinessJsonLd(locale: Locale) {
             "تنظيف الكنب",
             "غسيل الكنب",
             "تنظيف المفروشات",
-            "تنظيف المنازل",
+            "تنظيف جلسات المجلس",
           ]
         : [
             "Curtain Cleaning",
@@ -126,7 +126,7 @@ export function localBusinessJsonLd(locale: Locale) {
             "Sofa Cleaning",
             "Sofa Shampooing",
             "Upholstery Cleaning",
-            "Home Deep Cleaning",
+            "Majlis Sofa Seating",
           ],
   };
 }

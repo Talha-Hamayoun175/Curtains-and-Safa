@@ -3,7 +3,7 @@
     "home": {
       "title": "Premium Curtain & Sofa Services Saudi Arabia",
       "description": "Leading curtain cleaning, sofa cleaning, installation & upholstery services in Riyadh, Jeddah & across Saudi Arabia. Same-day service. Book online today.",
-      "keywords": "Curtain Cleaning Saudi Arabia, Sofa Cleaning Riyadh, Curtain Installation Services, Upholstery Cleaning Saudi Arabia"
+      "keywords": "Curtain Cleaning Saudi Arabia, Sofa Cleaning Riyadh, Curtain Installation Services, Upholstery Cleaning Saudi Arabia, Arabic Majlis Sofa Seating"
     },
     "about": {
       "title": "About Us",
@@ -11,7 +11,7 @@
     },
     "services": {
       "title": "Our Services",
-      "description": "Curtain cleaning, sofa cleaning, installation, repair, upholstery care & home deep cleaning across Saudi Arabia."
+      "description": "Curtain cleaning, sofa cleaning, installation, repair, upholstery care & Arabic majlis sofa seating across Saudi Arabia."
     },
     "pricing": {
       "title": "Pricing",
@@ -156,10 +156,10 @@
         "description": "Specialized cleaning for armchairs, dining chairs, ottomans, and all upholstered furniture.",
         "benefits": ["All upholstery", "Color-safe", "Allergen free"]
       },
-      "deep-cleaning": {
-        "title": "Home Deep Cleaning",
-        "description": "Comprehensive home deep cleaning covering every room — floors, surfaces, kitchens, and bathrooms.",
-        "benefits": ["Whole home", "Eco products", "Move-in ready"]
+      "majlis-seating": {
+        "title": "Majlis Sofa Seating",
+        "description": "Professional cleaning and care for traditional Arabic majlis seating — floor cushions, wall sofas, diwan seating, and majlis upholstery restored to a pristine, guest-ready finish.",
+        "benefits": ["Majlis specialists", "Fabric-safe care", "Guest-ready finish"]
       }
     }
   },
